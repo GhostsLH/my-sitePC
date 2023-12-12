@@ -1,30 +1,16 @@
 <template>
   <div>
-    <h1>{{ name }}</h1>
     <Avatar :url="url[0]" :size="size" />
     <Avatar :url="url[1]" :size="size" />
-    <Icon type="arrowDown" />
-    <Icon type="empty" />
-
-    <Pager :current="current" @pageChange="pageChange" :total="total" />
-    <!-- <Empty /> -->
-
-    <Contact />
   </div>
 </template>
 
 <script>
-import Avatar from "./components/Avatar";
-import Icon from "./components/comIcon";
-import Pager from "./components/Pager";
-import Contact from "./components/Contact";
+import Avatar from "./";
 export default {
   name: "ghosts",
   components: {
     Avatar,
-    Icon,
-    Pager,
-    Contact,
   },
   data() {
     return {
@@ -36,15 +22,9 @@ export default {
       size: 100,
       firstName: "古瑞德",
       lastName: "亚特兰蒂斯",
-      current: 26,
-      total: 2628,
     };
   },
   methods: {
-    pageChange(newPage) {
-      console.log(newPage);
-      this.current = newPage;
-    },
   },
 };
 </script>
