@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 150px; height: 110px">
+  <div class="avatar-container">
     <img
       class="avatar-img"
       :src="url"
@@ -18,7 +18,8 @@ export default {
     url: {
       type: String, // 类型
       required: true, //必传参数
-      default: //默认参数
+      //默认参数
+      default:
         "https://img0.baidu.com/it/u=3979551772,237278439&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1422",
     },
     size: {
@@ -33,11 +34,19 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="less">
 /* 带有作用域的样式 */
-.avatar-img {
+.avatar-container {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  object-fit: cover;
-  display: block;
+  .avatar-img {
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 </style>
