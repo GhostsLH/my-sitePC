@@ -1,16 +1,18 @@
 <template>
   <nav class="menu-container">
-    <a
+    <RouterLink
+      :exact="item.exact"
       v-for="item in items"
       :key="item.link"
-      :href="item.link"
-      :class="{ selected: isSelected(item) }"
+      :to="{ name: item.name }"
+      active-class="selected"
+      exact-active-class=""
     >
       <div class="icon">
         <Icon :type="item.icon" />
       </div>
       <span>{{ item.title }}</span>
-    </a>
+    </RouterLink>
   </nav>
 </template>
 
@@ -24,44 +26,43 @@ export default {
     return {
       items: [
         {
+          name: "Home",
           link: "/",
           title: "首页",
           icon: "home",
+          exact: true,
         },
         {
+          name: "Blog",
           link: "/blog",
           title: "文章",
           icon: "blog",
-          startWith: true, //
+          startWith: true,
+          exact: false, //激活状态是否要精确匹配
         },
         {
+          name: "About",
           link: "/about",
           title: "关于我",
           icon: "about",
+          exact: true,
         },
         {
+          name: "Project",
           link: "/project",
           title: "项目&效果",
           icon: "home",
+          exact: true,
         },
         {
+          name: "Message",
           link: "/message",
           title: "留言板",
           icon: "chat",
+          exact: true,
         },
       ],
     };
-  },
-  methods: {
-    isSelected(item) {
-      var link = item.link.toLowerCase(); //菜单的链接地址  //把地址全部转换为小写
-      var curPathname = location.pathname.toLowerCase(); //当前浏览器的访问路径
-      if (item.startWith) {
-        return curPathname.startsWith(link);
-      } else {
-        return curPathname === link;
-      }
-    },
   },
 };
 </script>
