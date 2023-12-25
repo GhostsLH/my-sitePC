@@ -5,5 +5,4 @@ export async function getBanners() {
 }
 
 getBanners().then((r) => {
-  console.log(r);
 });
