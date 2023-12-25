@@ -16,10 +16,12 @@
     "test:Layout": "vue serve ./src/components/Layout/test.vue"
   },
   "dependencies": {
+    "axios": "^1.6.2",
     "copy-webpack-plugin": "^6.0.3",
     "core-js": "^3.6.5",
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
+    "mockjs": "^1.1.0",
     "vue": "^2.7.15",
     "vue-router": "^3.6.5"
   },

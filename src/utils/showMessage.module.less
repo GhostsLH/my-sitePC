@@ -2,7 +2,7 @@
 @import "../styles/mixin.less";
 
 .message {
-    .self-center(fixed);
+    .self-center();
     z-index: 999;
     border-radius: 5px;
     box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -14,6 +14,7 @@
     transition: .4s;
     transform: translate(-50%, -50%) translateY(25px);
     opacity: 0;
+    white-space: nowrap;
 
     &-loading {
         background: @primary;
