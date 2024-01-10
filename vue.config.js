@@ -8,7 +8,7 @@ module.exports = {
   devServer: {
     proxy: {
       "/api": {
-        target: "http://www.duyiedu.com",
+        target: "http://localhost:8080",
       },
     },
   },

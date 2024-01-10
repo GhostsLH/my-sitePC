@@ -15,10 +15,13 @@ export default {};
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: row;
   .left,
   .right {
     flex: 0 0 auto;
+    overflow: hidden;
+  }
+  .main {
+    flex: 1 1 auto;
     overflow: hidden;
   }
 }
