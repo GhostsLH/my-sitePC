@@ -56,12 +56,10 @@ export default {
       };
     },
   },
-
   //组件挂载完成
   mounted() {
     this.titleWidth = this.$refs.title.clientWidth;
     this.descWidth = this.$refs.desc.clientWidth;
-    this.showWords();
     this.setSize();
     this.mouseX = this.center.x;
     this.mouseY = this.center.y;
@@ -70,7 +68,7 @@ export default {
   destroyed() {
     //组件销毁
     //方法也连同销毁
-    window.removeEventListener("resize", this.resize);
+    window.removeEventListener("resize", this.setSize);
   },
   methods: {
     //调用该方法，显示文字
@@ -91,6 +89,7 @@ export default {
       this.$refs.desc.style.width = this.descWidth + "px";
     },
     setSize() {
+      console.log(this.$refs.container.clientHeight);
       this.containerSize = {
         width: this.$refs.container.clientWidth,
         height: this.$refs.container.clientHeight,

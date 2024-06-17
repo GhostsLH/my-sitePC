@@ -1,5 +1,6 @@
 export { default as showMessage } from "./showMessage";
 export { default as getComponentRootDom } from "./getComponentRootDom";
+export { default as formatDate } from "./formatDate";
 //默认导入  ./showMessage
 //然后通过index.js 导出
 // as重命名一下。后面是名字

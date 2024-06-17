@@ -13,21 +13,27 @@
     "test:Contact": "vue serve ./src/components/SiteAside/Contact/test.vue",
     "test:Menu": "vue serve ./src/components/SiteAside/Menu/test.vue",
     "test:SiteAside": "vue serve ./src/components/SiteAside/test.vue",
-    "test:Layout": "vue serve ./src/components/Layout/test.vue"
+    "test:Layout": "vue serve ./src/components/Layout/test.vue",
+    "test:Loading": "vue serve ./src/components/Loading/test.vue",
+    "test:RightList": "vue serve ./src/views/Blog/components/RightList-test.vue"
   },
   "dependencies": {
+    "@vue/cli-service-global": "^4.5.19",
     "axios": "^1.6.2",
     "copy-webpack-plugin": "^6.0.3",
     "core-js": "^3.6.5",
-    "less": "^3.11.1",
-    "less-loader": "^5.0.0",
     "mockjs": "^1.1.0",
     "vue": "^2.7.15",
-    "vue-router": "^3.6.5"
+    "vue-router": "^3.6.5",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.8",
     "@vue/cli-service": "~5.0.8",
-    "vue-template-compiler": "^2.6.11"
+    "less": "^4.2.0",
+    "less-loader": "^12.2.0",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
   }
 }
