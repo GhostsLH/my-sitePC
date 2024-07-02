@@ -171,7 +171,6 @@ export default {
       return await getBanners();
     },
     handleResize() {
-      console.log("change");
       //重新获取一下页面高度
       this.containerHeight = this.$refs.container.clientHeight;
     },

@@ -53,10 +53,7 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, "get", {
       "id|1-10": 1,
       name: "分类@id",
     },
-    "thumb|1": [
-      Mock.Random.image("300x250", "#000", "#fff", "Random Image"),
-      null,
-    ],
+
     description: "@cparagraph(1, 10)",
     "scanNumber|0-10000": 0,
     "commentNumber|0-100": 0,
@@ -83,6 +80,10 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, "get", {
         name: "一个额外的补充",
         anchor: "article-md-title-7",
       },
+    ],
+    "thumb|1": [
+      Mock.Random.image("300x250", "#000", "#fff", "Random Image"),
+      null,
     ],
     htmlContent: `<blockquote>
   <p>阅读本文，你需要首先知道：</p><ol>

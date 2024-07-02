@@ -89,7 +89,6 @@ export default {
       this.$refs.desc.style.width = this.descWidth + "px";
     },
     setSize() {
-      console.log(this.$refs.container.clientHeight);
       this.containerSize = {
         width: this.$refs.container.clientWidth,
         height: this.$refs.container.clientHeight,

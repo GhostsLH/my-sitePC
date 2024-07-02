@@ -26,15 +26,3 @@ new Vue({
 /**
  * 随便测试一下接口
  */
-
-import * as blogApi from "./api/blog";
-
-blogApi.getBlog("ghosts").then((r) => console.log(r));
-
-blogApi
-  .postComment({
-    nickname: "昵称",
-    content: "评论内容， 纯文本",
-    blogId: "123",
-  })
-  .then((r) => console.log(r));

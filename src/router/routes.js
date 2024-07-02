@@ -5,6 +5,7 @@ import Project from "@/views/Project";
 import Message from "@/views/Message";
 import BlogDetail from "@/views/Blog/Detail";
 
+// 访问path为指定样式时跳转到name为对应样式的界面
 export default [
   { name: "Home", path: "/", component: Home },
   { name: "About", path: "/about", component: About },

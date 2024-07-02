@@ -61,7 +61,7 @@ import fetchData from "@/mixins/fetchData.js";
 import { getBlogs } from "@/api/blog.js";
 import { formatDate } from "@/utils";
 export default {
-  mixins: [fetchData({})],
+  mixins: [fetchData({})], //加载中效果
   components: {
     Pager,
   },
