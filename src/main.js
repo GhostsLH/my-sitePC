@@ -4,6 +4,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import "./styles/global.less";
 import router from "./router";
+import "./eventBus";
 Vue.config.productionTip = false;
 
 //导入showMessage方法

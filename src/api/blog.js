@@ -40,14 +40,11 @@ export async function postComment(commentInfo) {
  * 分页获取评论列表
  */
 export async function getComments(blogid, page = 1, limit = 10) {
-  return (
-    await request.get("/api/comment"),
-    {
-      params: {
-        blogid,
-        page,
-        limit,
-      },
-    }
-  );
+  return await request.get("/api/comment", {
+    params: {
+      blogid,
+      page,
+      limit,
+    },
+  });
 }
