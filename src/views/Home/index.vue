@@ -3,7 +3,7 @@
     class="home-container"
     ref="container"
     @wheel="handleWheel"
-    v-loading="isLoading"
+    v-loading="loading"
   >
     <ul
       class="carousel-container"
@@ -139,13 +139,11 @@
 </style>
 
 <script>
-import { getBanners } from "@/api/banner";
+import { mapState } from "vuex";
 import CarouselItem from "./Carouselitem";
 import Icon from "@/components/comIcon";
-import fetchData from "@/mixins/fetchData.js";
 
 export default {
-  mixins: [fetchData([])],
   components: {
     CarouselItem,
     Icon,
@@ -158,6 +156,9 @@ export default {
     };
   },
 
+  created() {
+    this.$store.dispatch("banner/fetchBanner");
+  },
   mounted() {
     this.containerHeight = this.$refs.container.clientHeight;
     window.addEventListener("resize", this.handleResize);
@@ -167,9 +168,6 @@ export default {
     window.removeEventListener("resize", this.handleResize);
   },
   methods: {
-    async fetchData() {
-      return await getBanners();
-    },
     handleResize() {
       //重新获取一下页面高度
       this.containerHeight = this.$refs.container.clientHeight;
@@ -200,6 +198,7 @@ export default {
     marginTop() {
       return -this.index * this.containerHeight + "px";
     },
+    ...mapState("banner", ["loading", "data"]),
   },
 };
 </script>

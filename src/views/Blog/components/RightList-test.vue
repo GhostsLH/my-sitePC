@@ -41,7 +41,6 @@ export default {
   },
   methods: {
     handleSelect(e) {
-      console.log(e);
     },
   },
 };

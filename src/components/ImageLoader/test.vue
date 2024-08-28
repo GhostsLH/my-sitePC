@@ -17,7 +17,6 @@ export default {
   },
   methods: {
     handleLoaded() {
-      console.log(`图片加载完成`);
     },
   },
 };

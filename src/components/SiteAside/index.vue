@@ -1,13 +1,13 @@
 <template>
   <div class="site-aside-container">
     <div class="avatar-container">
-      <Avatar
-        url="https://img0.baidu.com/it/u=3979551772,237278439&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1422"
-      />
-      <h1 class="title">魁拔</h1>
+      <template v-if="data"
+        ><Avatar :url="data.avatar" />
+        <h1 class="title">{{ data.siteTitle }}</h1>
+      </template>
       <Menu />
-      <Contact />
-      <p class="footer">秦ICP备2628680821号-1</p>
+      <Contact v-if="data" />
+      <p class="footer" v-if="data">{{ data.icp }}</p>
     </div>
   </div>
 </template>
@@ -16,12 +16,15 @@
 import Avatar from "@/components/Avatar";
 import Menu from "./Menu";
 import Contact from "./Contact";
+import { mapState } from "vuex";
 export default {
   components: {
     Avatar,
     Menu,
     Contact,
   },
+
+  computed: mapState("setting", ["data"]),
 };
 </script>
 
@@ -35,7 +38,7 @@ export default {
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: auto;
-  .title{
+  .title {
     font-size: 1em;
     color: #fff;
     text-align: center;

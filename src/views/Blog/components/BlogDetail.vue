@@ -12,7 +12,7 @@
             categoryId: blog.category.id,
           },
         }"
-        >分类: {{ blog.category.name }}</RouterLink
+        >当前所属分类：{{ blog.category.name }}</RouterLink
       >
     </div>
     <!-- 大胡子语法-安全性展示 -->

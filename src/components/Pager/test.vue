@@ -20,7 +20,6 @@ export default {
   },
   methods: {
     pageChange(newPage) {
-      console.log(newPage);
       this.current = newPage;
     },
   },

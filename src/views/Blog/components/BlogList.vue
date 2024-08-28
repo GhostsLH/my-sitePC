@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-list-container" ref="container" v-loading="isLoading">
+  <div class="blog-list-container" ref="mainContainer" v-loading="isLoading">
     <ul>
       <li v-for="item in data.rows" :key="item.id">
         <div class="thumb" v-if="item.thumb">
@@ -11,7 +11,7 @@
               },
             }"
           >
-            <img :src="item.thumb" :alt="item.title" :title="item.title" />
+            <img v-lazy="item.thumb" :alt="item.title" :title="item.title" />
           </RouterLink>
         </div>
         <div class="main">
@@ -60,17 +60,16 @@ import Pager from "@/components/Pager";
 import fetchData from "@/mixins/fetchData.js";
 import { getBlogs } from "@/api/blog.js";
 import { formatDate } from "@/utils";
+import mainScroll from "@/mixins/mainScroll.js";
 export default {
-  mixins: [fetchData({})], //加载中效果
+  mixins: [fetchData({}), mainScroll("mainContainer")], //加载中效果
   components: {
     Pager,
   },
   data() {
     return {};
   },
-  created() {
-    console.log(this.routeInfo);
-  },
+  created() {},
   computed: {
     //获取路由信息
     routeInfo() {
@@ -91,7 +90,6 @@ export default {
     },
     //处理页码变化
     handlePageChange(newPage) {
-      console.log(newPage);
       const query = {
         page: newPage,
         limit: this.routeInfo.limit,
@@ -116,7 +114,7 @@ export default {
     async $route() {
       this.isLoading = true;
       //滚动高度为0
-      this.$refs.container.scrollTop = 0;
+      this.$refs.mainContainer.scrollTop = 0;
       this.data = await this.fetchData();
       this.isLoading = false;
     },

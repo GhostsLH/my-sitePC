@@ -35,22 +35,20 @@ export default {
     this.$bus.$on("mainScroll", this.handleScroll);
   },
   methods: {
-    handleScroll(dom) {
-      if (this.isLoading) {
+    async handleScroll(dom) {
+      if (this.isLoading || !dom) {
         // 目前正在加载更多
         return;
       }
       const range = 100; //定一个可接受的范围，在这个范围内都算是到达了底部
       const dec = Math.abs(dom.scrollTop + dom.clientHeight - dom.scrollHeight);
       if (dec <= range) {
-        console.log("加载了更多");
         this.fetchMore();
       }
     },
     async fetchData() {
       return await getComments(this.$route.params.id, this.page, this.limit);
     },
-
     //加载下一页
     async fetchMore() {
       if (!this.hasMore) {
